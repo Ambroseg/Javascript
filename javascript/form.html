@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <script>
+        function display(){
+        //checking a condition age>=18
+        var age=document.getElementById("age").value;
+        if (age>17) {
+                    //accessing the values from the form
+        var fname=document.getElementById("fname").value;
+        var lname=document.getElementById("lname").value;
+        var email=document.getElementById("email").value;
+        var phone=document.getElementById("phone").value;
+        var dob=document.getElementById("dob").value;
+        document.getElementById("warning").innerHTML="<style>p{padding:5px;border-radius:5px;}</style>";
+        var course=document.getElementById("course").value;
+        var gender= document.querySelector('input[name="gender"]:checked').value;
+        
+        //displaying the values to the table
+        document.getElementById("success").innerHTML="Welcome "+fname+" "+lname;
+        document.getElementById("fname0").innerHTML=fname;
+        document.getElementById("lname0").innerHTML=lname;
+        document.getElementById("email0").innerHTML=email;
+        document.getElementById("phone0").innerHTML=phone;
+        document.getElementById("dob0").innerHTML=dob;
+        document.getElementById("course0").innerHTML=course;
+        document.getElementById("gender0").innerHTML=gender;
+        } else {
+        document.getElementById("warning").innerHTML="<style>p{padding:5px;border-radius:5px;}</style>Sorry. You are under 18 Year!!";
+        }
+
+        }
+
+        function validate(){
+        //checking a condition age>=18
+        var age=document.getElementById("age").value;
+        if (age>17) {
+                    //accessing the values from the form
+        var fname=document.getElementById("fname").value;
+        var lname=document.getElementById("lname").value;
+        var email=document.getElementById("email").value;
+        var phone=document.getElementById("phone").value;
+        var dob=document.getElementById("dob").value;
+        var course=document.getElementById("course").value;
+        var gender= document.querySelector('input[name="gender"]:checked').value;
+        //displaying the values to the table
+        document.getElementById("success").innerHTML="<style>th{background-color:green;color:white;</style>"+"Welcome "+fname+" "+lname;
+        document.getElementById("fname0").innerHTML=fname;
+        document.getElementById("lname0").innerHTML=lname;
+        document.getElementById("email0").innerHTML=email;
+        document.getElementById("phone0").innerHTML=phone;
+        document.getElementById("dob0").innerHTML=dob;
+        document.getElementById("course0").innerHTML=course;
+        document.getElementById("gender0").innerHTML=gender;
+        document.getElementById("warning").innerHTML="";
+        } else {
+        document.getElementById("fname0").innerHTML="";
+        document.getElementById("lname0").innerHTML="";
+        document.getElementById("email0").innerHTML="";
+        document.getElementById("phone0").innerHTML="";
+        document.getElementById("dob0").innerHTML="";
+        document.getElementById("warning").innerHTML="<style>p{padding:5px;border-radius:5px;}</style>Sorry. You are under 18 Year!!"
+        }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-4 offset-sm-1">
+            <form action="">
+                <h3>Enter Your Data</h3>
+                <input type="text" class="form-control" placeholder="First Name" id="fname"><br>
+                <input type="text" class="form-control" placeholder="Last Name" id="lname"><br>
+                <input type="email" class="form-control" placeholder="Email Address" id="email"><br>
+                <input type="tel" class="form-control" placeholder="Phone Number" id="phone"><br>
+                <input type="date" class="form-control" id="dob"><br>
+                <input type="number" onchange="validate()" class="form-control" id="age"><br>
+                <label for="">Course</label><br>
+                <select name="course" id="course">
+                    <option value="None">Select a Course</option>
+                    <option value="ICT">ICT</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                </select><br><br>
+                <label for="">Select your Gender</label><br>
+                <input type="radio" name="gender" id="gender" value="Male">&nbsp;
+                <label for="">Male</label><br>
+                <input type="radio" name="gender" id="gender" value="Female">&nbsp;
+                <label for="">Female</label><br><br>
+
+                <input type="button" onclick="display()" value="Send" class="btn btn-outline-success">
+            </form>
+        </div>
+        <div class="col-sm-5 offset-1">
+            <table class="table table-responsive table-striped table-hover">
+                <tr>
+                    <th colspan="2" style="text-align: center;">Data From the Form</th>
+                </tr>
+                <tr>
+                    <th id="success" colspan="2" style="text-align: center;"></th>
+                </tr>
+                <tr>
+                    <th>Item</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <td id="fname0"></td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td id="lname0"></td>
+                </tr>
+                <tr>
+                    <th>Email Address</th>
+                    <td id="email0"></td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <td id="phone0"></td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td id="dob0"></td>
+                </tr>
+                <tr>
+                    <th>Course</th>
+                    <td id="course0"></td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td id="gender0"></td>
+                </tr>
+            </table>
+            <p id="warning" style="background-color: rgb(231, 17, 17);color: white;
+            "></p>
+        </div>
+
+    </div>
+</body>
+</html>
